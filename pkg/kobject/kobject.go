@@ -91,6 +91,8 @@ type ServiceConfig struct {
 	StopGracePeriod  string              `compose:"stop_grace_period"`
 	Build            string              `compose:"build"`
 	BuildArgs        map[string]*string  `compose:"build-args"`
+	ClusterIP        string              `compose:"kompose.service.clusterIP"`
+	LoadBalancerIP   string              `compose:"kompose.service.loadBalancerIP"`
 	ExposeService    string              `compose:"kompose.service.expose"`
 	ExposeServiceTLS string              `compose:"kompose.service.expose.tls-secret"`
 	Stdin            bool                `compose:"stdin_open"`

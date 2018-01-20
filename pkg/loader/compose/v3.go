@@ -349,6 +349,10 @@ func dockerComposeToKomposeMapping(composeObject *types.Config) (kobject.Kompose
 				}
 
 				serviceConfig.ServiceType = serviceType
+			case "kompose.service.clusterIP":
+				serviceConfig.ClusterIP = value
+			case "kompose.service.loadBalancerIP":
+				serviceConfig.LoadBalancerIP = value
 			case "kompose.service.expose":
 				serviceConfig.ExposeService = strings.ToLower(value)
 			case "kompose.service.expose.tls-secret":
