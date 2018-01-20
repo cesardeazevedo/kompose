@@ -406,9 +406,7 @@ func (k *Kubernetes) UpdateKubernetesObjects(name string, service kobject.Servic
 			probe.PeriodSeconds = service.HealthChecks.Interval
 			probe.FailureThreshold = service.HealthChecks.Retries
 
-			// See issue: https://github.com/docker/cli/issues/116
-			// StartPeriod has been added to docker/cli however, it is not yet added
-			// to compose. Once the feature has been implemented, this will automatically work
+			// StartPeriod requires docker-compose version 3.4
 			probe.InitialDelaySeconds = service.HealthChecks.StartPeriod
 
 			template.Spec.Containers[0].LivenessProbe = &probe
